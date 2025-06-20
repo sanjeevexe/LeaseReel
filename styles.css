@@ -1,16 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
 
 :root {
-  /* neutrals — one cool-neutral family used everywhere */
-  --ink: #171b21;
-  --ink-2: #3c4450;
-  --paper: #f5f6f8;
+  /* neutrals — true black/white grayscale foundation, no color tint */
+  --ink: #121212;
+  --ink-2: #404040;
+  --paper: #f7f7f7;
   --surface: #ffffff;
-  --surface-2: #f9fafb;
-  --line: #dde1e7;
-  --line-2: #ebeef2;
-  --muted: #5b6472;
-  --muted-2: #95a0ac;
+  --surface-2: #fafafa;
+  --line: #e2e2e2;
+  --line-2: #ececec;
+  --muted: #616161;
+  --muted-2: #9e9e9e;
 
   /* single brand accent — navy, used identically everywhere it appears */
   --navy: #163257;
@@ -45,7 +45,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: "Public Sans", -apple-system, "Segoe UI", Arial, sans-serif;
+  font-family: "Libre Franklin", -apple-system, "Segoe UI", Arial, sans-serif;
   font-size: 14.5px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -95,13 +95,13 @@ textarea:focus-visible {
   border-radius: 4px;
   color: #ffffff;
   background: var(--navy);
-  font-family: "Public Sans", Arial, sans-serif;
+  font-family: "Libre Franklin", Arial, sans-serif;
   font-weight: 800;
   font-size: 12.5px;
   letter-spacing: 0.02em;
 }
 
-.brand-name { font-family: "Public Sans", Arial, sans-serif; font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+.brand-name { font-family: "Libre Franklin", Arial, sans-serif; font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
 .brand-sub { color: var(--muted); font-size: 11.5px; margin-top: 1px; }
 
 .nav { display: grid; gap: 2px; }
@@ -162,7 +162,7 @@ textarea:focus-visible {
   font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 600;
 }
 
-h1, h2, h3 { margin: 0; font-family: "Public Sans", Arial, sans-serif; color: var(--ink); }
+h1, h2, h3 { margin: 0; font-family: "Libre Franklin", Arial, sans-serif; color: var(--ink); }
 h1 { font-size: 27px; font-weight: 700; line-height: 1.15; letter-spacing: -0.015em; }
 h2 { font-size: 15.5px; font-weight: 700; letter-spacing: -0.005em; }
 h3 { font-size: 14.5px; font-weight: 700; }
@@ -308,7 +308,7 @@ h3 { font-size: 14.5px; font-weight: 700; }
 .ledger-head > span:nth-child(4) {
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.ledger-property { font-family: "Public Sans", Arial, sans-serif; font-weight: 600; font-size: 13px; }
+.ledger-property { font-family: "Libre Franklin", Arial, sans-serif; font-weight: 600; font-size: 13px; }
 .ledger-time { color: var(--muted); white-space: nowrap; }
 
 .publish-dot { color: var(--muted-2); font-family: "IBM Plex Mono", monospace; font-size: 10.5px; }
@@ -328,7 +328,7 @@ h3 { font-size: 14.5px; font-weight: 700; }
   min-height: 23px; width: fit-content; padding: 0 9px;
   border: 1px solid transparent; border-radius: 3px;
   font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.01em; white-space: nowrap;
 }
 .status-chip.cleared, .tier-chip.acceptable {
   color: var(--cleared); background: var(--cleared-bg); border-color: var(--cleared-border);
@@ -413,7 +413,7 @@ textarea { min-height: 220px; resize: vertical; padding: 12px; line-height: 1.55
 }
 .verdict span, .verdict strong { display: block; }
 .verdict span { font-family: "IBM Plex Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
-.verdict strong { margin-top: 4px; font-family: "Public Sans", Arial, sans-serif; font-size: 22px; font-weight: 700; }
+.verdict strong { margin-top: 4px; font-family: "Libre Franklin", Arial, sans-serif; font-size: 22px; font-weight: 700; }
 .verdict.cleared { color: var(--cleared); background: var(--cleared-bg); }
 .verdict.needs_review { color: var(--review); background: var(--review-bg); }
 .verdict.blocked { color: var(--blocked); background: var(--blocked-bg); }
