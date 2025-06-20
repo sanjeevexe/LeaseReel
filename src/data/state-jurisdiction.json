@@ -1,0 +1,171 @@
+{
+  "last_reviewed": "2026-07-20",
+  "note": "Compliance-support reference for prototype jurisdiction gating, not legal advice and not a substitute for current legal research. State and local rules change; a licensed broker or counsel should own production review.",
+  "sources": [
+    {
+      "label": "42 U.S.C. 3607 housing-for-older-persons exemption",
+      "url": "https://www.law.cornell.edu/uscode/text/42/3607"
+    },
+    {
+      "label": "HUD 2021 Fair Housing Act LGBTQ enforcement announcement",
+      "url": "https://www.hud.gov/press/press_releases_media_advisories/HUD_No_21_021"
+    },
+    {
+      "label": "HUD HOPA implementation regulations, 24 CFR 100.305-100.307",
+      "url": "https://www.ecfr.gov/current/title-24/subtitle-B/chapter-I/subchapter-A/part-100/subpart-E"
+    }
+  ],
+  "classes": {
+    "source of income": {
+      "description": "Housing vouchers and other lawful income sources are not named protected classes under the federal Fair Housing Act; coverage is state/local dependent.",
+      "protected_states": [
+        "CA",
+        "CO",
+        "CT",
+        "DC",
+        "DE",
+        "HI",
+        "IL",
+        "ME",
+        "MD",
+        "MA",
+        "MI",
+        "MN",
+        "NJ",
+        "NY",
+        "ND",
+        "OK",
+        "OR",
+        "RI",
+        "UT",
+        "VT",
+        "VA",
+        "WA",
+        "WI"
+      ],
+      "preempted_states": ["TX", "IN", "ID", "IA", "KY"],
+      "state_notes": {
+        "TX": "Texas is listed as preempting local source-of-income protections; voucher refusal is logged for visibility but not treated as a state-law publishing block in this prototype.",
+        "NY": "New York source-of-income protection is volatile in 2026; the NYC local Human Rights Law remains independently enforced, and the seeded NY property is modeled as NYC-local protected."
+      }
+    },
+    "sexual orientation": {
+      "description": "The Fair Housing Act text does not name sexual orientation; explicit housing protections remain state/local dependent while federal enforcement posture has shifted.",
+      "protected_states": [
+        "CA",
+        "CO",
+        "CT",
+        "DC",
+        "DE",
+        "HI",
+        "IL",
+        "ME",
+        "MD",
+        "MA",
+        "MN",
+        "NV",
+        "NJ",
+        "NM",
+        "NY",
+        "OR",
+        "RI",
+        "VT",
+        "VA",
+        "WA"
+      ],
+      "preempted_states": [],
+      "state_notes": {
+        "TX": "Texas has no statewide sexual-orientation housing protection in this prototype reference; local ordinances may still matter."
+      }
+    },
+    "gender identity": {
+      "description": "The Fair Housing Act text does not name gender identity; explicit housing protections remain state/local dependent while federal enforcement posture has shifted.",
+      "protected_states": [
+        "CA",
+        "CO",
+        "CT",
+        "DC",
+        "DE",
+        "HI",
+        "IL",
+        "ME",
+        "MD",
+        "MA",
+        "MN",
+        "NV",
+        "NJ",
+        "NM",
+        "NY",
+        "OR",
+        "RI",
+        "VT",
+        "VA",
+        "WA"
+      ],
+      "preempted_states": []
+    },
+    "marital status": {
+      "description": "The Fair Housing Act text does not name marital status; explicit housing protections are state/local dependent, though marital status is one of the more commonly state-protected classes nationally.",
+      "protected_states": [
+        "CA",
+        "CO",
+        "CT",
+        "DC",
+        "IL",
+        "MD",
+        "MA",
+        "MI",
+        "MN",
+        "MT",
+        "NJ",
+        "NY",
+        "ND",
+        "WA",
+        "WI"
+      ],
+      "preempted_states": [],
+      "state_notes": {
+        "TX": "Texas has no statewide marital-status housing protection in this prototype reference; local ordinances may still matter."
+      }
+    },
+    "age": {
+      "description": "Age-based exclusion of applicants (distinct from the HOPA senior-housing exemption, which permits age-restricted marketing only on verified qualifying properties) is state/local dependent and less uniformly protected than other classes.",
+      "protected_states": [
+        "DC",
+        "NJ",
+        "NY",
+        "WI"
+      ],
+      "preempted_states": [],
+      "state_notes": {
+        "TX": "Texas has no statewide age housing protection in this prototype reference; local ordinances may still matter."
+      }
+    },
+    "military / veteran status": {
+      "description": "Military and veteran status is not a federal Fair Housing Act class; explicit protections are state/local dependent.",
+      "protected_states": [
+        "CA",
+        "IL",
+        "MA",
+        "MN",
+        "NJ",
+        "NY",
+        "WA"
+      ],
+      "preempted_states": [],
+      "state_notes": {
+        "TX": "Texas has no statewide military/veteran-status housing protection in this prototype reference; local ordinances may still matter."
+      }
+    }
+  },
+  "local_overrides": {
+    "NY": {
+      "New York": {
+        "source of income": {
+          "protected": true,
+          "note": "New York City is modeled as locally protected for source of income, independent of the unsettled 2026 state-law posture."
+        }
+      }
+    }
+  }
+}
