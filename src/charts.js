@@ -22,7 +22,7 @@ export function sparkline(values, opts = {}) {
   });
   const line = points.map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`).join(" ");
   const area = `${line} L${points[points.length - 1][0].toFixed(1)} ${h - pad} L${points[0][0].toFixed(1)} ${h - pad} Z`;
-  const stroke = opts.stroke || "var(--accent)";
+  const stroke = opts.stroke || "var(--navy)";
   const [lx, ly] = points[points.length - 1];
   return `
     <svg class="chart-spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="${esc(opts.label || "trend")}">
@@ -106,7 +106,7 @@ export function horizontalBars(items, opts = {}) {
             <div class="hbar-row">
               <span class="hbar-label">${esc(i.label)}</span>
               <div class="hbar-track">
-                <span class="hbar-fill" style="width:${pct}%; background:${i.color || "var(--accent)"}"></span>
+                <span class="hbar-fill" style="width:${pct}%; background:${i.color || "var(--navy)"}"></span>
               </div>
               <span class="hbar-value">${esc(i.display != null ? i.display : i.value)}</span>
             </div>`;
@@ -130,7 +130,7 @@ export function funnel(steps, opts = {}) {
           return `
             <div class="funnel-step">
               <div class="funnel-meta"><span>${esc(s.label)}</span><strong>${esc(s.value)}</strong></div>
-              <div class="funnel-bar-track"><span class="funnel-bar" style="width:${pct}%; background:${s.color || "var(--accent)"}"></span></div>
+              <div class="funnel-bar-track"><span class="funnel-bar" style="width:${pct}%; background:${s.color || "var(--navy)"}"></span></div>
               ${conv ? `<span class="funnel-conv">${conv} of prior</span>` : ""}
             </div>`;
         })
@@ -151,7 +151,7 @@ export function compareBars(series, opts = {}) {
           return `
             <div class="compare-row">
               <span class="compare-label">${esc(s.label)}</span>
-              <div class="compare-track"><span class="compare-fill" style="width:${pct}%; background:${s.color || "var(--accent)"}"></span></div>
+              <div class="compare-track"><span class="compare-fill" style="width:${pct}%; background:${s.color || "var(--navy)"}"></span></div>
               <span class="compare-value">${esc(s.display != null ? s.display : s.value)}</span>
             </div>`;
         })
