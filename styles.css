@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
 
-:root {
+/* Theme tokens. :root / [data-theme="light"] is the default; [data-theme="dark"]
+   overrides the same variable names. Everything below this block references
+   only these variables, so the whole UI repaints from a single attribute
+   flip on <html> — no component-level theme logic needed. */
+:root,
+html[data-theme="light"] {
   /* neutrals — true black/white grayscale foundation, no color tint */
   --ink: #121212;
   --ink-2: #404040;
@@ -12,9 +17,8 @@
   --muted: #616161;
   --muted-2: #9e9e9e;
 
-  /* single brand accent — near-black, used identically everywhere it appears.
-     Color is reserved for the compliance status system below; the UI chrome
-     itself (buttons, links, active states) stays on the black/white scale. */
+  /* single brand accent — near-black. Color itself is reserved for the
+     compliance status system below; UI chrome stays on the black/white scale. */
   --navy: #1a1a1a;
   --navy-hover: #000000;
   --navy-tint: #ececec;
@@ -37,6 +41,47 @@
   --radius: 6px;
   --radius-sm: 4px;
 }
+
+html[data-theme="dark"] {
+  /* neutrals — near-black background, near-white text */
+  --ink: #f0f0f0;
+  --ink-2: #c7c7c7;
+  --paper: #0a0a0a;
+  --surface: #151515;
+  --surface-2: #1d1d1d;
+  --line: #2c2c2c;
+  --line-2: #232323;
+  --muted: #9a9a9a;
+  --muted-2: #6e6e6e;
+
+  /* single brand accent — near-white (inverted from near-black in light mode)
+     so it still pops against the black/white scale. */
+  --navy: #f0f0f0;
+  --navy-hover: #ffffff;
+  --navy-tint: #262626;
+  --navy-light: #9a9a9a;
+  --focus: #f0f0f0;
+
+  /* status system — brightened for contrast against a black background,
+     same hue family as light mode, tuned for AA legibility on #0a0a0a */
+  --cleared: #34b871;
+  --cleared-bg: rgba(52, 184, 113, 0.14);
+  --cleared-border: rgba(52, 184, 113, 0.34);
+  --review: #d99a3d;
+  --review-bg: rgba(217, 154, 61, 0.14);
+  --review-border: rgba(217, 154, 61, 0.34);
+  --blocked: #ef5f52;
+  --blocked-bg: rgba(239, 95, 82, 0.14);
+  --blocked-border: rgba(239, 95, 82, 0.34);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow: 0 10px 26px rgba(0, 0, 0, 0.65);
+  --radius: 6px;
+  --radius-sm: 4px;
+}
+
+html { transition: background 150ms ease; }
+body, .rail, .panel, .metric-tile { transition: background 150ms ease, border-color 150ms ease, color 150ms ease; }
 
 * { box-sizing: border-box; }
 
@@ -95,7 +140,7 @@ textarea:focus-visible {
   width: 34px; height: 34px;
   display: grid; place-items: center;
   border-radius: 4px;
-  color: #ffffff;
+  color: var(--surface);
   background: var(--navy);
   font-family: "Libre Franklin", Arial, sans-serif;
   font-weight: 800;
@@ -133,8 +178,32 @@ textarea:focus-visible {
 .nav-dot { width: 6px; height: 6px; border-radius: 999px; background: var(--line); transition: background 120ms ease; }
 .nav-item.is-active .nav-dot { background: var(--navy); }
 
+.rail-foot { margin-top: auto; display: grid; gap: 10px; }
+
+.theme-toggle {
+  display: flex; align-items: center; gap: 8px;
+  width: 100%; min-height: 36px; padding: 0 10px;
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  background: var(--surface); color: var(--ink-2);
+  font-size: 12.5px; font-weight: 600; text-align: left;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+.theme-toggle:hover { border-color: var(--navy-light); background: var(--surface-2); }
+.theme-toggle-track {
+  position: relative; width: 30px; height: 16px; flex-shrink: 0;
+  border-radius: 999px; background: var(--line-2);
+  transition: background 150ms ease;
+}
+.theme-toggle-track.is-dark { background: var(--navy-tint); }
+.theme-toggle-thumb {
+  position: absolute; top: 2px; left: 2px; width: 12px; height: 12px;
+  border-radius: 999px; background: var(--muted-2);
+  transition: transform 150ms ease, background 150ms ease;
+}
+.theme-toggle-track.is-dark .theme-toggle-thumb { transform: translateX(14px); background: var(--navy); }
+.theme-toggle-label { margin-left: auto; }
+
 .rail-meta {
-  margin-top: auto;
   display: grid; gap: 6px;
   padding: 14px 10px 4px;
   border-top: 1px solid var(--line-2);
@@ -341,7 +410,7 @@ h3 { font-size: 14.5px; font-weight: 700; }
 .status-chip.blocked, .tier-chip.violation {
   color: var(--blocked); background: var(--blocked-bg); border-color: var(--blocked-border);
 }
-.tier-chip.informational { color: var(--navy-light); background: var(--navy-tint); border-color: rgba(107, 107, 107, 0.28); }
+.tier-chip.informational { color: var(--navy-light); background: var(--navy-tint); border-color: rgba(154, 154, 154, 0.32); }
 
 /* Categorical metadata — stage, cohort, mode: neutral tags, no color fill.
    A small leading dot carries the distinction instead of a colored badge. */
@@ -446,17 +515,17 @@ textarea { min-height: 220px; resize: vertical; padding: 12px; line-height: 1.55
 }
 .hl { border-radius: 3px; padding: 1px 3px; font-weight: 500; }
 mark.hl { color: var(--ink); }
-.hl-violation { background: rgba(178, 51, 39, 0.14); box-shadow: inset 0 -2px 0 var(--blocked); }
-.hl-caution { background: rgba(156, 91, 0, 0.14); box-shadow: inset 0 -2px 0 var(--review); }
-.hl-informational { background: rgba(107, 107, 107, 0.14); box-shadow: inset 0 -2px 0 var(--navy-light); }
-.hl-ok { background: rgba(28, 122, 79, 0.1); box-shadow: inset 0 -2px 0 var(--cleared); color: inherit; }
+.hl-violation { background: rgba(239, 95, 82, 0.16); box-shadow: inset 0 -2px 0 var(--blocked); }
+.hl-caution { background: rgba(217, 154, 61, 0.16); box-shadow: inset 0 -2px 0 var(--review); }
+.hl-informational { background: rgba(154, 154, 154, 0.16); box-shadow: inset 0 -2px 0 var(--navy-light); }
+.hl-ok { background: rgba(52, 184, 113, 0.14); box-shadow: inset 0 -2px 0 var(--cleared); color: inherit; }
 .annot-legend { display: flex; flex-wrap: wrap; gap: 14px; color: var(--muted); font-size: 11.5px; }
 .annot-legend span { display: inline-flex; align-items: center; gap: 6px; }
 .hl-swatch { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
-.hl-swatch.violation { background: rgba(178, 51, 39, 0.26); border-bottom: 2px solid var(--blocked); }
-.hl-swatch.caution { background: rgba(156, 91, 0, 0.26); border-bottom: 2px solid var(--review); }
-.hl-swatch.informational { background: rgba(107, 107, 107, 0.22); border-bottom: 2px solid var(--navy-light); }
-.hl-swatch.ok { background: rgba(28, 122, 79, 0.18); border-bottom: 2px solid var(--cleared); }
+.hl-swatch.violation { background: rgba(239, 95, 82, 0.3); border-bottom: 2px solid var(--blocked); }
+.hl-swatch.caution { background: rgba(217, 154, 61, 0.3); border-bottom: 2px solid var(--review); }
+.hl-swatch.informational { background: rgba(154, 154, 154, 0.26); border-bottom: 2px solid var(--navy-light); }
+.hl-swatch.ok { background: rgba(52, 184, 113, 0.26); border-bottom: 2px solid var(--cleared); }
 
 .findings-list { display: grid; gap: 10px; }
 .finding-card {
@@ -470,7 +539,7 @@ mark.hl { color: var(--ink); }
 .finding-topline { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 
 mark {
-  padding: 2px 6px; border-radius: 3px; color: var(--ink); background: #fdecb2;
+  padding: 2px 6px; border-radius: 3px; color: #241c00; background: #e8c465;
   font-family: "IBM Plex Mono", monospace;
 }
 
@@ -486,8 +555,8 @@ mark {
 .rewrite strong { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--navy-light); }
 
 .finding-note {
-  padding: 9px 10px; border: 1px solid rgba(63, 110, 163, 0.25); border-radius: var(--radius-sm);
-  color: var(--navy); background: var(--navy-tint); font-size: 12.5px; font-weight: 500;
+  padding: 9px 10px; border: 1px solid var(--line); border-radius: var(--radius-sm);
+  color: var(--ink); background: var(--navy-tint); font-size: 12.5px; font-weight: 500;
 }
 
 .accepted-block {
@@ -718,7 +787,7 @@ mark {
   .rail .brand { flex-shrink: 0; }
   .nav { grid-auto-flow: column; grid-auto-columns: max-content; gap: 6px; }
   .nav-item { justify-content: center; white-space: nowrap; }
-  .nav-dot, .rail-meta { display: none; }
+  .nav-dot, .rail-foot { display: none; }
   .workspace { padding: 20px 18px 40px; }
   .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .field-grid { grid-template-columns: 1fr; }
