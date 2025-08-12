@@ -1,3 +1,9 @@
 node_modules/
 .DS_Store
 *.log
+.Rhistory
+
+# Internal business/strategy documents — local reference only, not for the public repo.
+LeaseReel_AI_AssetManager_UseCase_v1.docx
+LeaseReel_Prototype_Briefing.docx
+LeaseReel_Compliance_Data_Reference.docx
