@@ -1181,9 +1181,11 @@ function easeOutCubic(value) {
 
 /* --------------------------------------------------------------- helpers -- */
 
+const chipLabels = { blocked: "Blocked", needs_review: "Review", cleared: "Cleared" };
+
 function statusChip(status) {
   const normalized = status === "violation" ? "blocked" : status;
-  return `<span class="status-chip ${normalized}">${escapeHtml(statusLabels[normalized] || status)}</span>`;
+  return `<span class="status-chip ${normalized}" title="${escapeAttribute(statusLabels[normalized] || status)}">${escapeHtml(chipLabels[normalized] || status)}</span>`;
 }
 
 function tierChip(tier) {
