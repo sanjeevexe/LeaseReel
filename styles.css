@@ -12,12 +12,14 @@
   --muted: #616161;
   --muted-2: #9e9e9e;
 
-  /* single brand accent — navy, used identically everywhere it appears */
-  --navy: #163257;
-  --navy-hover: #0f2542;
-  --navy-tint: #eaf0f7;
-  --navy-light: #3f6ea3;
-  --focus: #3f6ea3;
+  /* single brand accent — near-black, used identically everywhere it appears.
+     Color is reserved for the compliance status system below; the UI chrome
+     itself (buttons, links, active states) stays on the black/white scale. */
+  --navy: #1a1a1a;
+  --navy-hover: #000000;
+  --navy-tint: #ececec;
+  --navy-light: #6b6b6b;
+  --focus: #1a1a1a;
 
   /* status system — reserved strictly for true compliance signals */
   --cleared: #1c7a4f;
@@ -339,7 +341,7 @@ h3 { font-size: 14.5px; font-weight: 700; }
 .status-chip.blocked, .tier-chip.violation {
   color: var(--blocked); background: var(--blocked-bg); border-color: var(--blocked-border);
 }
-.tier-chip.informational { color: var(--navy-light); background: var(--navy-tint); border-color: rgba(63, 110, 163, 0.28); }
+.tier-chip.informational { color: var(--navy-light); background: var(--navy-tint); border-color: rgba(107, 107, 107, 0.28); }
 
 /* Categorical metadata — stage, cohort, mode: neutral tags, no color fill.
    A small leading dot carries the distinction instead of a colored badge. */
@@ -446,14 +448,14 @@ textarea { min-height: 220px; resize: vertical; padding: 12px; line-height: 1.55
 mark.hl { color: var(--ink); }
 .hl-violation { background: rgba(178, 51, 39, 0.14); box-shadow: inset 0 -2px 0 var(--blocked); }
 .hl-caution { background: rgba(156, 91, 0, 0.14); box-shadow: inset 0 -2px 0 var(--review); }
-.hl-informational { background: rgba(63, 110, 163, 0.14); box-shadow: inset 0 -2px 0 var(--navy-light); }
+.hl-informational { background: rgba(107, 107, 107, 0.14); box-shadow: inset 0 -2px 0 var(--navy-light); }
 .hl-ok { background: rgba(28, 122, 79, 0.1); box-shadow: inset 0 -2px 0 var(--cleared); color: inherit; }
 .annot-legend { display: flex; flex-wrap: wrap; gap: 14px; color: var(--muted); font-size: 11.5px; }
 .annot-legend span { display: inline-flex; align-items: center; gap: 6px; }
 .hl-swatch { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
 .hl-swatch.violation { background: rgba(178, 51, 39, 0.26); border-bottom: 2px solid var(--blocked); }
 .hl-swatch.caution { background: rgba(156, 91, 0, 0.26); border-bottom: 2px solid var(--review); }
-.hl-swatch.informational { background: rgba(63, 110, 163, 0.22); border-bottom: 2px solid var(--navy-light); }
+.hl-swatch.informational { background: rgba(107, 107, 107, 0.22); border-bottom: 2px solid var(--navy-light); }
 .hl-swatch.ok { background: rgba(28, 122, 79, 0.18); border-bottom: 2px solid var(--cleared); }
 
 .findings-list { display: grid; gap: 10px; }
