@@ -1,0 +1,895 @@
+{
+  "version": "2026.07.20",
+  "description": "LeaseReel starter fair-housing compliance rules. Editable seed data for the standalone compliance engine.",
+  "rules": [
+    {
+      "id": "familial-no-children",
+      "phrase": "no children",
+      "tier": "violation",
+      "hopa_caution": true,
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "Excludes families with children, a protected class under the Fair Housing Act.",
+      "suggested_rewrite": "Describe the unit's features instead, such as bedroom count, layout, or location. Do not reference who may live there."
+    },
+    {
+      "id": "familial-no-kids",
+      "phrase": "no kids",
+      "tier": "violation",
+      "hopa_caution": true,
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "Excludes families with children, a protected class under the Fair Housing Act.",
+      "suggested_rewrite": "Describe the unit's features instead, such as bedroom count, layout, or location. Do not reference who may live there."
+    },
+    {
+      "id": "familial-adults-only",
+      "phrase": "adults only",
+      "tier": "violation",
+      "hopa_caution": true,
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "Signals a preference against households with children.",
+      "suggested_rewrite": "Describe property rules, amenities, or floor plan details without stating a preferred occupant type."
+    },
+    {
+      "id": "familial-adult-community",
+      "phrase": "adult community",
+      "tier": "violation",
+      "hopa_caution": true,
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "Suggests a preference for adults and against families with children.",
+      "suggested_rewrite": "Use neutral property descriptors such as community amenities, services, or location."
+    },
+    {
+      "id": "familial-mature-adults",
+      "phrase": "mature adults",
+      "tier": "violation",
+      "hopa_caution": true,
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "States a preference for an adult household rather than describing the property.",
+      "suggested_rewrite": "Describe objective features, lease terms, or amenities without referencing age or household makeup."
+    },
+    {
+      "id": "familial-empty-nesters",
+      "phrase": "empty nesters",
+      "tier": "violation",
+      "hopa_caution": true,
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "Targets households without children, which implies a familial-status preference.",
+      "suggested_rewrite": "Describe the floor plan, storage, amenities, or location without describing the intended resident."
+    },
+    {
+      "id": "familial-perfect-for-singles",
+      "phrase": "perfect for singles",
+      "tier": "violation",
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "States a preferred household type instead of describing the unit.",
+      "suggested_rewrite": "Replace with objective features, such as 'studio layout with efficient storage and downtown access.'"
+    },
+    {
+      "id": "familial-couples-only",
+      "phrase": "couples only",
+      "tier": "violation",
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "Limits housing to a preferred household composition.",
+      "suggested_rewrite": "Describe occupancy-neutral features such as bedrooms, bathrooms, and common areas."
+    },
+    {
+      "id": "familial-great-for-families",
+      "phrase": "great for families",
+      "tier": "violation",
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "States a preference tied to familial status.",
+      "suggested_rewrite": "Describe the property feature instead, such as '2 bedrooms, family room, and nearby parks.'"
+    },
+    {
+      "id": "familial-ideal-for-a-family",
+      "phrase": "ideal for a family",
+      "tier": "violation",
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "States a preference tied to familial status.",
+      "suggested_rewrite": "Describe the layout and amenities without naming an intended household type."
+    },
+    {
+      "id": "familial-no-more-than-one-child",
+      "phrase": "no more than one child",
+      "tier": "violation",
+      "hopa_caution": true,
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "Restricts families with children and sets a child-count preference.",
+      "suggested_rewrite": "State neutral occupancy limits only when legally reviewed and tied to applicable code."
+    },
+    {
+      "id": "familial-senior-living-community",
+      "phrase": "senior living community",
+      "tier": "violation",
+      "hopa_preferred": true,
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "References older-persons housing; acceptable only when the property has verified HOPA qualification.",
+      "suggested_rewrite": "Use senior-housing language only for properties with documented HOPA qualification."
+    },
+    {
+      "id": "familial-55-and-older-community",
+      "phrase": "55 and older community",
+      "tier": "violation",
+      "hopa_preferred": true,
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "References older-persons housing; acceptable only when the property has verified HOPA qualification.",
+      "suggested_rewrite": "Use this phrasing only for properties with documented HOPA qualification."
+    },
+    {
+      "id": "familial-age-restricted-housing",
+      "phrase": "age-restricted housing",
+      "tier": "violation",
+      "hopa_preferred": true,
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "References age-restricted housing; acceptable only when the property has verified HOPA qualification.",
+      "suggested_rewrite": "Use age-restricted housing language only for properties with documented HOPA qualification."
+    },
+    {
+      "id": "familial-ages-55-and-up",
+      "phrase": "ages 55 and up",
+      "tier": "violation",
+      "hopa_preferred": true,
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "References older-persons housing; acceptable only when the property has verified HOPA qualification.",
+      "suggested_rewrite": "Use this phrasing only for properties with documented HOPA qualification."
+    },
+    {
+      "id": "familial-refusal-rent-to-families",
+      "phrase": "refusal to rent to families with children",
+      "pattern": "\\b(?:we[\\s-]+)?(?:do[\\s-]+not|don't|will[\\s-]+not|won't|refuse[\\s-]+to)\\s+(?:rent|lease)\\s+to\\s+(?:families[\\s-]+with[\\s-]+(?:kids|children)|families|kids|children)\\b",
+      "tier": "violation",
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "Explicitly refuses housing based on familial status.",
+      "suggested_rewrite": "Remove refusal language and describe neutral, lawful occupancy or property facts only."
+    },
+    {
+      "id": "familial-not-suitable-large-families",
+      "phrase": "not suitable for large families",
+      "pattern": "\\bnot\\s+(?:suitable|suited)\\s+for\\s+(?:large[\\s-]+)?families(?:[\\s-]+with[\\s-]+(?:kids|children))?\\b",
+      "tier": "violation",
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "Discourages families with children from applying.",
+      "suggested_rewrite": "Describe objective unit size, bedroom count, or occupancy limits without naming a preferred household."
+    },
+    {
+      "id": "religion-christian-preference",
+      "phrase": "Christian",
+      "tier": "violation",
+      "classes": ["religion"],
+      "scope": "federal",
+      "rationale": "References religion in a way that can signal a resident preference.",
+      "suggested_rewrite": "Remove religious references and describe property features or neighborhood amenities neutrally."
+    },
+    {
+      "id": "religion-catholic-community",
+      "phrase": "Catholic community",
+      "tier": "violation",
+      "classes": ["religion"],
+      "scope": "federal",
+      "rationale": "Signals a religious preference for the community.",
+      "suggested_rewrite": "Describe the location or nearby landmarks without implying residents should share a religion."
+    },
+    {
+      "id": "religion-jewish",
+      "phrase": "Jewish",
+      "tier": "violation",
+      "classes": ["religion"],
+      "scope": "federal",
+      "rationale": "References religion in a housing advertisement.",
+      "suggested_rewrite": "Remove religious references and describe objective property or area features."
+    },
+    {
+      "id": "religion-muslim",
+      "phrase": "Muslim",
+      "tier": "violation",
+      "classes": ["religion"],
+      "scope": "federal",
+      "rationale": "References religion in a housing advertisement.",
+      "suggested_rewrite": "Remove religious references and describe objective property or area features."
+    },
+    {
+      "id": "religion-church-going",
+      "phrase": "church-going",
+      "tier": "violation",
+      "classes": ["religion"],
+      "scope": "federal",
+      "rationale": "Signals a religious preference for residents.",
+      "suggested_rewrite": "Describe property features, location, or amenities without referencing religious practice."
+    },
+    {
+      "id": "religion-no-religion",
+      "phrase": "no [religion]",
+      "pattern": "\\bno\\s+(christians?|catholics?|jews|jewish|muslims?|hindus?|buddhists?|sikhs?|mormons?)\\b",
+      "tier": "violation",
+      "classes": ["religion"],
+      "scope": "federal",
+      "rationale": "Excludes applicants based on religion.",
+      "suggested_rewrite": "Remove religious exclusions and describe objective rental criteria only."
+    },
+    {
+      "id": "religion-godly-household",
+      "phrase": "godly household",
+      "tier": "violation",
+      "classes": ["religion"],
+      "scope": "federal",
+      "rationale": "Signals a religious preference for the household.",
+      "suggested_rewrite": "Describe lease terms or home features without referencing resident beliefs."
+    },
+    {
+      "id": "race-whites-only",
+      "phrase": "whites only",
+      "tier": "violation",
+      "classes": ["race", "color", "national origin"],
+      "scope": "federal",
+      "rationale": "Excludes or prefers residents based on race, color, or national origin.",
+      "suggested_rewrite": "Remove demographic preferences and describe objective property features."
+    },
+    {
+      "id": "race-no-race",
+      "phrase": "no [race]",
+      "pattern": "\\bno\\s+(black|white|asian|hispanic|latino|latina|latinx|caucasian|african\\s+american|native\\s+american|arab|middle\\s+eastern|indian|chinese|mexican)s?\\b",
+      "tier": "violation",
+      "classes": ["race", "color", "national origin"],
+      "scope": "federal",
+      "rationale": "Excludes applicants based on race, color, or national origin.",
+      "suggested_rewrite": "Remove demographic exclusions and describe neutral rental qualifications only."
+    },
+    {
+      "id": "race-caucasian",
+      "phrase": "Caucasian",
+      "tier": "violation",
+      "classes": ["race", "color"],
+      "scope": "federal",
+      "rationale": "References race or color in a housing advertisement.",
+      "suggested_rewrite": "Remove race or color references and describe the property instead."
+    },
+    {
+      "id": "race-integrated",
+      "phrase": "integrated",
+      "tier": "violation",
+      "classes": ["race", "color", "national origin"],
+      "scope": "federal",
+      "rationale": "References racial or demographic composition in a housing context.",
+      "suggested_rewrite": "Describe concrete neighborhood amenities without demographic characterization."
+    },
+    {
+      "id": "national-origin-english-only",
+      "phrase": "English only",
+      "tier": "violation",
+      "classes": ["national origin"],
+      "scope": "federal",
+      "rationale": "May exclude applicants based on national origin.",
+      "suggested_rewrite": "State objective communication or application process details without language-based exclusion."
+    },
+    {
+      "id": "national-origin-must-speak-english",
+      "phrase": "must speak English",
+      "tier": "violation",
+      "classes": ["national origin"],
+      "scope": "federal",
+      "rationale": "May exclude applicants based on national origin.",
+      "suggested_rewrite": "Use neutral application requirements and provide language access details where applicable."
+    },
+    {
+      "id": "national-origin-no-immigrants",
+      "phrase": "no immigrants",
+      "tier": "violation",
+      "classes": ["national origin"],
+      "scope": "federal",
+      "rationale": "Excludes applicants based on national origin.",
+      "suggested_rewrite": "Remove national-origin exclusions and describe neutral rental qualifications only."
+    },
+    {
+      "id": "national-origin-ethnic-preference",
+      "phrase": "ethnic-preference references",
+      "pattern": "\\b(ethnic(?:ity)?\\s+preferred|preferred\\s+ethnic(?:ity)?|ethnic\\s+preference|ethnic-preference)\\b",
+      "tier": "violation",
+      "classes": ["race", "color", "national origin"],
+      "scope": "federal",
+      "rationale": "Signals a preference based on ethnicity or national origin.",
+      "suggested_rewrite": "Remove demographic preferences and describe the property or lease terms neutrally."
+    },
+    {
+      "id": "disability-no-wheelchairs",
+      "phrase": "no wheelchairs",
+      "tier": "violation",
+      "classes": ["disability"],
+      "scope": "federal",
+      "rationale": "Excludes residents based on disability.",
+      "suggested_rewrite": "Describe the property's physical features without excluding assistive-device users."
+    },
+    {
+      "id": "disability-able-bodied",
+      "phrase": "able-bodied",
+      "tier": "violation",
+      "classes": ["disability"],
+      "scope": "federal",
+      "rationale": "States a preference against people with disabilities.",
+      "suggested_rewrite": "Describe accessibility features or physical characteristics of the property neutrally."
+    },
+    {
+      "id": "disability-healthy-only",
+      "phrase": "healthy only",
+      "tier": "violation",
+      "classes": ["disability"],
+      "scope": "federal",
+      "rationale": "Excludes residents based on health or disability status.",
+      "suggested_rewrite": "Remove health-based language and describe objective lease qualifications only."
+    },
+    {
+      "id": "disability-not-for-handicapped",
+      "phrase": "not for handicapped",
+      "tier": "violation",
+      "classes": ["disability"],
+      "scope": "federal",
+      "rationale": "Excludes people with disabilities.",
+      "suggested_rewrite": "Describe property access facts without stating who the home is or is not for."
+    },
+    {
+      "id": "disability-no-hiv",
+      "phrase": "no HIV",
+      "tier": "violation",
+      "classes": ["disability"],
+      "scope": "federal",
+      "rationale": "Excludes residents based on disability or health status.",
+      "suggested_rewrite": "Remove health-status exclusions and use neutral rental criteria only."
+    },
+    {
+      "id": "disability-physically-fit",
+      "phrase": "physically fit",
+      "tier": "violation",
+      "classes": ["disability"],
+      "scope": "federal",
+      "rationale": "Signals a disability-based preference.",
+      "suggested_rewrite": "Describe stairs, elevator access, or terrain directly without describing desired residents."
+    },
+    {
+      "id": "disability-must-climb-stairs",
+      "phrase": "must be able to climb stairs",
+      "tier": "violation",
+      "classes": ["disability"],
+      "scope": "federal",
+      "rationale": "Sets a physical ability requirement for residents.",
+      "suggested_rewrite": "Describe the building condition neutrally, such as 'third-floor walk-up; no elevator.'"
+    },
+    {
+      "id": "sex-male-only",
+      "phrase": "male only",
+      "tier": "violation",
+      "classes": ["sex"],
+      "scope": "federal",
+      "rationale": "Excludes applicants based on sex.",
+      "suggested_rewrite": "Remove sex-based preferences and describe neutral lease criteria only."
+    },
+    {
+      "id": "sex-female-only",
+      "phrase": "female only",
+      "tier": "violation",
+      "classes": ["sex"],
+      "scope": "federal",
+      "rationale": "Excludes applicants based on sex.",
+      "suggested_rewrite": "Remove sex-based preferences and describe neutral lease criteria only."
+    },
+    {
+      "id": "orientation-no-gays",
+      "phrase": "no gays",
+      "tier": "violation",
+      "classes": ["sexual orientation"],
+      "scope": "state-dependent",
+      "rationale": "Excludes applicants based on sexual orientation, which is protected in many state or local jurisdictions.",
+      "suggested_rewrite": "Remove orientation-based exclusions and describe objective rental criteria only."
+    },
+    {
+      "id": "orientation-straight-tenants",
+      "phrase": "straight tenants",
+      "tier": "violation",
+      "classes": ["sexual orientation"],
+      "scope": "state-dependent",
+      "rationale": "Signals a sexual-orientation preference, which is protected in many state or local jurisdictions.",
+      "suggested_rewrite": "Remove orientation-based references and describe property features or lease terms neutrally."
+    },
+    {
+      "id": "sex-bachelor-pad",
+      "phrase": "bachelor pad",
+      "tier": "caution",
+      "classes": ["sex"],
+      "scope": "federal",
+      "rationale": "Can imply a gendered resident profile in some contexts.",
+      "suggested_rewrite": "Describe the unit style directly, such as 'open-plan studio with built-in storage.'"
+    },
+    {
+      "id": "gender-identity-cisgender-only",
+      "phrase": "cisgender only",
+      "tier": "violation",
+      "classes": ["gender identity"],
+      "scope": "state-dependent",
+      "rationale": "Excludes applicants based on gender identity, which is protected in many state or local jurisdictions.",
+      "suggested_rewrite": "Remove gender-identity-based exclusions and describe objective rental criteria only."
+    },
+    {
+      "id": "gender-identity-no-transgender",
+      "phrase": "no transgender",
+      "tier": "violation",
+      "classes": ["gender identity"],
+      "scope": "state-dependent",
+      "rationale": "Excludes applicants based on gender identity, which is protected in many state or local jurisdictions.",
+      "suggested_rewrite": "Remove gender-identity-based exclusions and describe objective rental criteria only."
+    },
+    {
+      "id": "gender-identity-must-present-as",
+      "phrase": "must present as your birth gender",
+      "tier": "violation",
+      "classes": ["gender identity"],
+      "scope": "state-dependent",
+      "rationale": "Conditions housing on gender presentation, which is a gender-identity exclusion protected in many state or local jurisdictions.",
+      "suggested_rewrite": "Remove any reference to gender presentation and describe lawful screening criteria only."
+    },
+    {
+      "id": "marital-married-couples-only",
+      "phrase": "married couples only",
+      "tier": "violation",
+      "classes": ["marital status"],
+      "scope": "state-dependent",
+      "rationale": "Excludes applicants based on marital status, which is protected in many state or local jurisdictions.",
+      "suggested_rewrite": "Describe occupancy limits or lease terms without referencing marital status."
+    },
+    {
+      "id": "marital-no-unmarried-couples",
+      "phrase": "no unmarried couples",
+      "tier": "violation",
+      "classes": ["marital status"],
+      "scope": "state-dependent",
+      "rationale": "Excludes applicants based on marital status, which is protected in many state or local jurisdictions.",
+      "suggested_rewrite": "Describe occupancy limits or lease terms without referencing marital status."
+    },
+    {
+      "id": "marital-unmarried-couples-not-allowed",
+      "phrase": "unmarried couples not allowed",
+      "tier": "violation",
+      "classes": ["marital status"],
+      "scope": "state-dependent",
+      "rationale": "Excludes applicants based on marital status, which is protected in many state or local jurisdictions.",
+      "suggested_rewrite": "Describe occupancy limits or lease terms without referencing marital status."
+    },
+    {
+      "id": "age-no-seniors",
+      "phrase": "no seniors",
+      "tier": "violation",
+      "classes": ["age"],
+      "scope": "state-dependent",
+      "rationale": "Excludes older applicants based on age, which is protected in some state or local jurisdictions. This is distinct from the HOPA senior-housing exemption, which permits age-restricted marketing only on verified qualifying properties.",
+      "suggested_rewrite": "Describe the unit's features and lease terms without referencing applicant age."
+    },
+    {
+      "id": "age-no-one-over",
+      "phrase": "no one over 55",
+      "tier": "violation",
+      "classes": ["age"],
+      "scope": "state-dependent",
+      "rationale": "Excludes older applicants based on age, which is protected in some state or local jurisdictions.",
+      "suggested_rewrite": "Describe the unit's features and lease terms without referencing applicant age."
+    },
+    {
+      "id": "age-must-be-under",
+      "phrase": "must be under 30",
+      "tier": "violation",
+      "classes": ["age"],
+      "scope": "state-dependent",
+      "rationale": "Excludes older applicants based on age, which is protected in some state or local jurisdictions.",
+      "suggested_rewrite": "Describe the unit's features and lease terms without referencing applicant age."
+    },
+    {
+      "id": "age-young-professionals-only",
+      "phrase": "young professionals only",
+      "tier": "caution",
+      "classes": ["age"],
+      "scope": "state-dependent",
+      "rationale": "Coded language that can signal an age preference depending on context.",
+      "suggested_rewrite": "Describe commute access, workspace features, or amenities instead of a preferred resident age or career stage."
+    },
+    {
+      "id": "military-no-military",
+      "phrase": "no military",
+      "tier": "violation",
+      "classes": ["military / veteran status"],
+      "scope": "state-dependent",
+      "rationale": "Excludes applicants based on military or veteran status, which is protected in some state or local jurisdictions.",
+      "suggested_rewrite": "Describe lawful, objective screening criteria without referencing military or veteran status."
+    },
+    {
+      "id": "military-no-veterans",
+      "phrase": "no veterans",
+      "tier": "violation",
+      "classes": ["military / veteran status"],
+      "scope": "state-dependent",
+      "rationale": "Excludes applicants based on military or veteran status, which is protected in some state or local jurisdictions.",
+      "suggested_rewrite": "Describe lawful, objective screening criteria without referencing military or veteran status."
+    },
+    {
+      "id": "military-civilians-only",
+      "phrase": "civilians only",
+      "tier": "violation",
+      "classes": ["military / veteran status"],
+      "scope": "state-dependent",
+      "rationale": "Excludes applicants based on military or veteran status, which is protected in some state or local jurisdictions.",
+      "suggested_rewrite": "Describe lawful, objective screening criteria without referencing military or veteran status."
+    },
+    {
+      "id": "income-no-section-8",
+      "phrase": "no Section 8",
+      "tier": "violation",
+      "classes": ["source of income"],
+      "scope": "state-dependent",
+      "rationale": "Excludes voucher holders, a protected source-of-income category in many state or local jurisdictions.",
+      "suggested_rewrite": "Describe lawful, objective income or screening criteria without voucher exclusions."
+    },
+    {
+      "id": "income-no-vouchers",
+      "phrase": "no vouchers",
+      "tier": "violation",
+      "classes": ["source of income"],
+      "scope": "state-dependent",
+      "rationale": "Excludes voucher holders, a protected source-of-income category in many state or local jurisdictions.",
+      "suggested_rewrite": "Describe lawful, objective income or screening criteria without voucher exclusions."
+    },
+    {
+      "id": "income-no-welfare",
+      "phrase": "no welfare",
+      "tier": "violation",
+      "classes": ["source of income"],
+      "scope": "state-dependent",
+      "rationale": "May exclude applicants based on source of income, which is protected in many state or local jurisdictions.",
+      "suggested_rewrite": "Use neutral, lawful screening criteria and avoid naming public benefits."
+    },
+    {
+      "id": "income-must-be-employed",
+      "phrase": "must be employed",
+      "tier": "violation",
+      "classes": ["source of income"],
+      "scope": "state-dependent",
+      "rationale": "May exclude lawful non-employment sources of income in jurisdictions that protect source of income.",
+      "suggested_rewrite": "State neutral income verification requirements without requiring employment as the only source."
+    },
+    {
+      "id": "income-refusal-vouchers",
+      "phrase": "refusal to accept vouchers",
+      "pattern": "\\b(?:we[\\s-]+)?(?:do[\\s-]+not|don't|will[\\s-]+not|won't|refuse[\\s-]+to)\\s+(?:accept|take|rent[\\s-]+to|lease[\\s-]+to)\\s+(?:section[\\s-]+8|vouchers?|voucher[\\s-]+holders)\\b",
+      "tier": "violation",
+      "classes": ["source of income"],
+      "scope": "state-dependent",
+      "rationale": "Refuses applicants based on voucher or source-of-income status where protected by state or local law.",
+      "suggested_rewrite": "Describe lawful, objective income or screening criteria without voucher exclusions."
+    },
+    {
+      "id": "caution-exclusive",
+      "phrase": "exclusive",
+      "tier": "caution",
+      "classes": ["race", "color", "national origin"],
+      "scope": "federal",
+      "rationale": "Can read as coded or exclusionary when describing who belongs in a community.",
+      "suggested_rewrite": "Use objective descriptors such as amenities, finishes, service levels, or access controls."
+    },
+    {
+      "id": "caution-executive",
+      "phrase": "executive",
+      "tier": "caution",
+      "classes": ["source of income", "familial status"],
+      "scope": "state-dependent",
+      "rationale": "Can imply a preferred income, occupation, or household profile.",
+      "suggested_rewrite": "Describe features like workspace, transit access, or finish quality without naming a resident type."
+    },
+    {
+      "id": "caution-private",
+      "phrase": "private",
+      "tier": "caution",
+      "classes": ["race", "color", "national origin"],
+      "scope": "federal",
+      "rationale": "Can imply exclusion or preference depending on context.",
+      "suggested_rewrite": "Describe the actual feature, such as 'controlled-access entry' or 'private balcony,' with care."
+    },
+    {
+      "id": "caution-restricted",
+      "phrase": "restricted",
+      "pattern": "\\brestricted[\\s-]+to[\\s-]+(?:families|family|singles?|couples?|seniors?|empty[\\s-]+nesters?|adults?|bachelors?|christians?|catholics?|jews|jewish|muslims?|hindus?|buddhists?|sikhs?|mormons?|white|black|asian|hispanic|latino|latina|latinx|caucasian|immigrants?)\\b",
+      "tier": "caution",
+      "classes": ["race", "color", "national origin", "familial status"],
+      "scope": "federal",
+      "rationale": "Can imply an exclusionary community standard.",
+      "suggested_rewrite": "Describe objective eligibility, access, or lease requirements only after review."
+    },
+    {
+      "id": "caution-limited",
+      "phrase": "limited",
+      "pattern": "\\blimited[\\s-]+to[\\s-]+(?:families|family|singles?|couples?|seniors?|empty[\\s-]+nesters?|adults?|bachelors?|christians?|catholics?|jews|jewish|muslims?|hindus?|buddhists?|sikhs?|mormons?|white|black|asian|hispanic|latino|latina|latinx|caucasian|immigrants?)\\b",
+      "tier": "caution",
+      "classes": ["race", "color", "national origin", "familial status"],
+      "scope": "federal",
+      "rationale": "Can imply exclusion or scarcity in a steering context.",
+      "suggested_rewrite": "Use specific, factual availability language such as 'two homes available this week.'"
+    },
+    {
+      "id": "caution-prestigious",
+      "phrase": "prestigious",
+      "tier": "caution",
+      "classes": ["race", "color", "national origin", "source of income"],
+      "scope": "state-dependent",
+      "rationale": "Can imply social or economic preference rather than property quality.",
+      "suggested_rewrite": "Name the concrete features that support the claim, such as finishes, location, or services."
+    },
+    {
+      "id": "caution-traditional",
+      "phrase": "traditional",
+      "tier": "caution",
+      "classes": ["familial status", "religion", "sex"],
+      "scope": "federal",
+      "rationale": "Can imply a preference for a certain family, religious, or gender norm.",
+      "suggested_rewrite": "Describe architectural style or finishes directly if that is the intended meaning."
+    },
+    {
+      "id": "caution-family-oriented",
+      "phrase": "family-oriented",
+      "tier": "caution",
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "Can signal a preference based on familial status.",
+      "suggested_rewrite": "Describe amenities, room count, play areas, or nearby services without naming a preferred household."
+    },
+    {
+      "id": "caution-family-neighborhood",
+      "phrase": "family neighborhood",
+      "tier": "caution",
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "Can signal steering based on familial status.",
+      "suggested_rewrite": "Use neutral location details such as nearby parks, schools, transit, or retail."
+    },
+    {
+      "id": "caution-safe-area",
+      "phrase": "safe area",
+      "tier": "caution",
+      "classes": ["race", "color", "national origin"],
+      "scope": "federal",
+      "rationale": "Subjective safety claims can act as steering language.",
+      "suggested_rewrite": "Use objective facts such as lighting, controlled access, or published public data where appropriate."
+    },
+    {
+      "id": "caution-safe-neighborhood",
+      "phrase": "safe neighborhood",
+      "tier": "caution",
+      "classes": ["race", "color", "national origin"],
+      "scope": "federal",
+      "rationale": "Subjective neighborhood safety claims can act as steering language.",
+      "suggested_rewrite": "Use objective property features, access controls, or nearby amenities instead."
+    },
+    {
+      "id": "caution-secure-neighborhood",
+      "phrase": "secure neighborhood",
+      "tier": "caution",
+      "classes": ["race", "color", "national origin"],
+      "scope": "federal",
+      "rationale": "Subjective neighborhood security claims can act as steering language.",
+      "suggested_rewrite": "Describe specific security features such as controlled-access gates or on-site lighting."
+    },
+    {
+      "id": "caution-quiet-building",
+      "phrase": "quiet building",
+      "pattern": "\\bquiet[\\s-]+building[\\s-]+(?:for|preferred[\\s-]+by|reserved[\\s-]+for)[\\s-]+(?:families|family|singles?|couples?|seniors?|empty[\\s-]+nesters?|adults?|bachelors?)\\b",
+      "tier": "caution",
+      "classes": ["familial status", "disability"],
+      "scope": "federal",
+      "rationale": "Can imply a preference against children or certain residents depending on context.",
+      "suggested_rewrite": "Describe building construction, quiet hours, or unit location without implying resident preference."
+    },
+    {
+      "id": "caution-walking-distance",
+      "phrase": "walking distance",
+      "tier": "caution",
+      "classes": ["disability"],
+      "scope": "federal",
+      "rationale": "Can imply assumptions about physical ability.",
+      "suggested_rewrite": "Use distance or transit facts, such as '0.4 miles to the station' or 'near transit.'"
+    },
+    {
+      "id": "caution-walk-to",
+      "phrase": "walk to",
+      "tier": "caution",
+      "classes": ["disability"],
+      "scope": "federal",
+      "rationale": "Can imply assumptions about physical ability.",
+      "suggested_rewrite": "Use neutral proximity language such as 'near,' '0.2 miles from,' or 'served by transit.'"
+    },
+    {
+      "id": "caution-jog-to",
+      "phrase": "jog to",
+      "tier": "caution",
+      "classes": ["disability"],
+      "scope": "federal",
+      "rationale": "Can imply assumptions about physical ability.",
+      "suggested_rewrite": "Use neutral proximity language such as 'near' or measured distance."
+    },
+    {
+      "id": "caution-perfect-for",
+      "phrase": "perfect for",
+      "pattern": "\\bperfect[\\s-]+for[\\s-]+(?:a[\\s-]+)?(?:families|family|singles?|couples?|seniors?|empty[\\s-]+nesters?|adults?|bachelors?|christians?|catholics?|jews|jewish|muslims?|hindus?|buddhists?|sikhs?|mormons?|white|black|asian|hispanic|latino|latina|latinx|caucasian|immigrants?)\\b",
+      "tier": "caution",
+      "classes": ["familial status", "sex", "disability"],
+      "scope": "federal",
+      "rationale": "Can turn property copy into a resident preference when followed by a type of person.",
+      "suggested_rewrite": "Replace with objective property features and avoid describing who should live there."
+    },
+    {
+      "id": "caution-ideal-for",
+      "phrase": "ideal for",
+      "pattern": "\\bideal[\\s-]+for[\\s-]+(?:a[\\s-]+)?(?:families|family|singles?|couples?|seniors?|empty[\\s-]+nesters?|adults?|bachelors?|christians?|catholics?|jews|jewish|muslims?|hindus?|buddhists?|sikhs?|mormons?|white|black|asian|hispanic|latino|latina|latinx|caucasian|immigrants?)\\b",
+      "tier": "caution",
+      "classes": ["familial status", "sex", "disability"],
+      "scope": "federal",
+      "rationale": "Can turn property copy into a resident preference when followed by a type of person.",
+      "suggested_rewrite": "Replace with objective property features and avoid describing who should live there."
+    },
+    {
+      "id": "caution-great-for",
+      "phrase": "great for",
+      "pattern": "\\bgreat[\\s-]+for[\\s-]+(?:a[\\s-]+)?(?:families|family|singles?|couples?|seniors?|empty[\\s-]+nesters?|adults?|bachelors?|christians?|catholics?|jews|jewish|muslims?|hindus?|buddhists?|sikhs?|mormons?|white|black|asian|hispanic|latino|latina|latinx|caucasian|immigrants?)\\b",
+      "tier": "caution",
+      "classes": ["familial status", "sex", "disability"],
+      "scope": "federal",
+      "rationale": "Can turn property copy into a resident preference when followed by a type of person.",
+      "suggested_rewrite": "Replace with objective property features and avoid describing who should live there."
+    },
+    {
+      "id": "caution-diverse",
+      "phrase": "diverse",
+      "tier": "caution",
+      "classes": ["race", "color", "national origin"],
+      "scope": "federal",
+      "rationale": "Can reference demographic composition rather than property features.",
+      "suggested_rewrite": "Describe concrete neighborhood amenities without demographic characterization."
+    },
+    {
+      "id": "caution-mixed-community",
+      "phrase": "mixed community",
+      "tier": "caution",
+      "classes": ["race", "color", "national origin"],
+      "scope": "federal",
+      "rationale": "Can reference demographic composition rather than property features.",
+      "suggested_rewrite": "Describe concrete neighborhood amenities without demographic characterization."
+    },
+    {
+      "id": "acceptable-wheelchair-accessible",
+      "phrase": "wheelchair accessible",
+      "tier": "acceptable",
+      "classes": ["disability"],
+      "scope": "federal",
+      "rationale": "Describes an accessibility feature of the property.",
+      "suggested_rewrite": "No rewrite needed; this describes a property feature."
+    },
+    {
+      "id": "acceptable-accessible",
+      "phrase": "accessible",
+      "tier": "acceptable",
+      "classes": ["disability"],
+      "scope": "federal",
+      "rationale": "Describes access or a property feature when not used to exclude residents.",
+      "suggested_rewrite": "No rewrite needed when used to describe the property."
+    },
+    {
+      "id": "acceptable-family-room",
+      "phrase": "family room",
+      "tier": "acceptable",
+      "classes": ["familial status"],
+      "scope": "federal",
+      "rationale": "Describes a room type, not a preferred household.",
+      "suggested_rewrite": "No rewrite needed; this describes the property."
+    },
+    {
+      "id": "acceptable-master-bedroom",
+      "phrase": "master bedroom",
+      "tier": "acceptable",
+      "classes": ["familial status", "sex"],
+      "scope": "federal",
+      "rationale": "Describes a room type in the unit.",
+      "suggested_rewrite": "No rewrite needed; this describes the property."
+    },
+    {
+      "id": "acceptable-gated-community",
+      "phrase": "gated community",
+      "tier": "acceptable",
+      "classes": [],
+      "scope": "property-feature",
+      "rationale": "Describes an access-control property feature.",
+      "suggested_rewrite": "No rewrite needed; this describes the property."
+    },
+    {
+      "id": "acceptable-great-view",
+      "phrase": "great view",
+      "tier": "acceptable",
+      "classes": [],
+      "scope": "property-feature",
+      "rationale": "Describes a property feature rather than a resident.",
+      "suggested_rewrite": "No rewrite needed; this describes the property."
+    },
+    {
+      "id": "acceptable-walk-in-closet",
+      "phrase": "walk-in closet",
+      "tier": "acceptable",
+      "classes": [],
+      "scope": "property-feature",
+      "rationale": "Describes a storage feature.",
+      "suggested_rewrite": "No rewrite needed; this describes the property."
+    },
+    {
+      "id": "acceptable-renovated",
+      "phrase": "renovated",
+      "tier": "acceptable",
+      "classes": [],
+      "scope": "property-feature",
+      "rationale": "Describes a property condition.",
+      "suggested_rewrite": "No rewrite needed; this describes the property."
+    },
+    {
+      "id": "acceptable-spacious",
+      "phrase": "spacious",
+      "tier": "acceptable",
+      "classes": [],
+      "scope": "property-feature",
+      "rationale": "Describes the unit.",
+      "suggested_rewrite": "No rewrite needed; this describes the property."
+    },
+    {
+      "id": "acceptable-hardwood-floors",
+      "phrase": "hardwood floors",
+      "tier": "acceptable",
+      "classes": [],
+      "scope": "property-feature",
+      "rationale": "Describes a finish in the unit.",
+      "suggested_rewrite": "No rewrite needed; this describes the property."
+    },
+    {
+      "id": "acceptable-near-golf-course",
+      "phrase": "near golf course",
+      "tier": "acceptable",
+      "classes": [],
+      "scope": "property-feature",
+      "rationale": "Describes location relative to an amenity.",
+      "suggested_rewrite": "No rewrite needed; this describes the property."
+    },
+    {
+      "id": "acceptable-equal-housing-opportunity",
+      "phrase": "Equal Housing Opportunity",
+      "tier": "acceptable",
+      "classes": [],
+      "scope": "safe-harbor",
+      "safe_harbor": true,
+      "rationale": "Logs an Equal Housing Opportunity safe-harbor signal.",
+      "suggested_rewrite": "No rewrite needed; retain this statement when appropriate."
+    },
+    {
+      "id": "safe-harbor-eho",
+      "phrase": "EHO",
+      "tier": "acceptable",
+      "classes": [],
+      "scope": "safe-harbor",
+      "safe_harbor": true,
+      "rationale": "Logs an EHO safe-harbor signal.",
+      "suggested_rewrite": "No rewrite needed; retain this statement when appropriate."
+    }
+  ]
+}
