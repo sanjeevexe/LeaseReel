@@ -51,7 +51,8 @@ const state = {
     platform: "instagram",
     body: complianceExamples[2].body
   },
-  toast: ""
+  toast: "",
+  theme: getInitialTheme()
 };
 
 let engine;
@@ -62,6 +63,7 @@ boot().catch((error) => {
 });
 
 async function boot() {
+  applyTheme(state.theme);
   const [ruleSet, jurisdictionData] = await Promise.all([
     fetchJson("./src/data/compliance-rules.json"),
     fetchJson("./src/data/state-jurisdiction.json")
@@ -145,10 +147,13 @@ function render() {
         <nav class="nav" aria-label="Primary">
           ${navItems.map(navButton).join("")}
         </nav>
-        <div class="rail-meta">
-          <span>${repository?.kind === "supabase" ? "Supabase ledger" : "Local demo ledger"}</span>
-          <span>Rule set ${escapeHtml(engine?.version || "")}</span>
-          <span>${engine?.ruleCount || 0} active rules</span>
+        <div class="rail-foot">
+          ${themeToggle()}
+          <div class="rail-meta">
+            <span>${repository?.kind === "supabase" ? "Supabase ledger" : "Local demo ledger"}</span>
+            <span>Rule set ${escapeHtml(engine?.version || "")}</span>
+            <span>${engine?.ruleCount || 0} active rules</span>
+          </div>
         </div>
       </aside>
       <main class="workspace">
@@ -158,6 +163,35 @@ function render() {
     </div>
   `;
   animateCounts();
+}
+
+function getInitialTheme() {
+  return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  try {
+    localStorage.setItem("leasereel-theme", theme);
+  } catch {
+    // localStorage unavailable (private mode, etc.) — theme still applies for this session.
+  }
+}
+
+function toggleTheme() {
+  state.theme = state.theme === "dark" ? "light" : "dark";
+  applyTheme(state.theme);
+  render();
+}
+
+function themeToggle() {
+  const isDark = state.theme === "dark";
+  return `
+    <button class="theme-toggle" data-action="toggle-theme" type="button" aria-pressed="${isDark}">
+      <span class="theme-toggle-track ${isDark ? "is-dark" : ""}"><span class="theme-toggle-thumb"></span></span>
+      <span class="theme-toggle-label">${isDark ? "Dark mode" : "Light mode"}</span>
+    </button>
+  `;
 }
 
 function navButton({ view, label }) {
@@ -977,6 +1011,10 @@ document.addEventListener("click", async (event) => {
   if (!actionButton) return;
   const action = actionButton.dataset.action;
 
+  if (action === "toggle-theme") {
+    toggleTheme();
+    return;
+  }
   if (action === "toggle-post") {
     const id = actionButton.dataset.postId;
     state.expandedPostIds.has(id) ? state.expandedPostIds.delete(id) : state.expandedPostIds.add(id);
