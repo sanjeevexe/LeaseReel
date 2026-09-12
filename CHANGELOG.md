@@ -1,6 +1,6 @@
 # LeaseReel Prototype — Session Changelog: July 20, 2026
 
-Working session ahead of a walkthrough with Sanjeev's boss. Covers a full frontend
+Working session ahead of a stakeholder walkthrough. Covers a full frontend
 redesign plus a set of functional fixes identified in a codebase audit against the
 project's use-case doc and build spec. This file documents the **final state** reached
 by the end of the session, not the intermediate iterations along the way. See
