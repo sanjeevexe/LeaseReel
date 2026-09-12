@@ -69,7 +69,7 @@ An engine that flags "no wheelchairs" **but not** "wheelchair accessible" is the
 
 ### 3.2 Protected classes (federal + state-dependent)
 
-Every finding is tagged with the class it implicates. Federal classes are always active; state-dependent classes are flagged separately — this maps directly to Francisco's "multi-state licensing framework" concern in the doc.
+Every finding is tagged with the class it implicates. Federal classes are always active; state-dependent classes are flagged separately — this maps directly to the "multi-state licensing framework" concern raised in the use-case doc.
 
 **Federal (Fair Housing Act — always enforced):**
 race · color · religion · sex · disability · familial status · national origin

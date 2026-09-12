@@ -1,5 +1,12 @@
 # LeaseReel Prototype Work Summary
 
+This is a historical build log — it documents how the prototype evolved, session by
+session. It is not the current state summary; some numbers below (test counts, rule
+counts) were accurate as of their own session and were later superseded. For the
+current state, see `README.md` (how to run it, current screen list) and
+`CHANGELOG.md` (the most recent session's changes, including the final rule/test
+counts: 96 rules, 20 tests).
+
 ## Revamp (v3) — highlights
 
 This pass substantially upgraded the prototype from four screens to six and
@@ -168,11 +175,3 @@ npm run dev
 ```
 
 Open `http://127.0.0.1:5173`.
-
-## Export
-
-The current codebase can be exported with:
-
-```bash
-zip -r LeaseReel_prototype_export.zip README.md WORK_SUMMARY.md index.html package.json server.mjs src styles.css supabase tests
-```
