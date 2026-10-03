@@ -8,17 +8,16 @@ a standalone, explainable Fair Housing compliance engine, an owned lead/CRM
 pipeline, and a portfolio-wide governance dashboard, wired together as a
 vanilla HTML/CSS/JS app with an optional Supabase backend.
 
-**Status:** prototype / demo, not production software. See [`LeaseReel_Prototype_Build_Spec.md`](./LeaseReel_Prototype_Build_Spec.md)
-for the design rationale and scope decisions, and [`CHANGELOG.md`](./CHANGELOG.md) /
-[`WORK_SUMMARY.md`](./WORK_SUMMARY.md) for how it evolved.
+**Status:** prototype / demo, not production software. The app uses synthetic
+demo data by default; its current capabilities and setup are described below.
 
 Six connected screens:
 
 - **Overview** — portfolio governance pane (compliance ledger, status mix, 8-week volume, per-property health, leads snapshot, top owner signals).
 - **Compliance** — live Fair Housing checker with in-place annotated copy, context-aware findings, one-click **auto-fix & re-check**, and a **publish gate** (blocked copy cannot publish).
 - **Leads** — owned pipeline with lead-to-lease funnel, source attribution, and stage board.
-- **Performance** — the use case's 90-day bar: social-attributed leases per vacant unit, cost-per-lease vs. paid channels, conversion, and pilot-vs-baseline-vs-control comparisons.
-- **Signals** — AI Asset Manager intelligence preview: owner recommendations derived from LeaseReel's own leasing/compliance/channel data, mapped to the AI Context Foundation.
+- **Performance** — demo comparisons of social-attributed leases per vacant unit, cost-per-lease vs. paid channels, conversion, and pilot-vs-baseline-vs-control results.
+- **Signals** — owner recommendations derived from the demo's leasing, compliance, and channel data.
 - **Audit** — timestamped, immutable compliance record with annotated copy.
 
 ## Run locally
